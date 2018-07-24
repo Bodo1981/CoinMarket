@@ -2,34 +2,27 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/home">
+    android:id="@+id/main"
+    app:startDestination="@id/screenFragment">
 
-    <fragment
-        android:id="@+id/home"
-        android:name="bahl.christian.coinmarketcap.home.HomeFragment"
-        android:label="HomeFragment"
-        tools:layout="@layout/fragment_home" />
+  <fragment
+      android:id="@+id/screenFragment"
+      android:name="bahl.christian.coinmarketcap.screen.ScreenFragment"
+      android:label="ScreenFragment"
+      tools:layout="@layout/fragment_home">
+    <argument
+        android:name="ref"
+        android:defaultValue="@null"
+        app:argType="bahl.christian.coinmarketcap.base.IRef"
+        app:nullable="true"/>
+  </fragment>
 
-    <fragment
-        android:id="@+id/details"
-        android:name="bahl.christian.coinmarketcap.detail.DetailFragment"
-        android:label="DetailFragment"
-        tools:layout="@layout/fragment_details" />
-
-    <action
-        android:id="@+id/navToDetails"
-        app:destination="@id/details"
-        app:enterAnim="@anim/nav_default_enter_anim"
-        app:exitAnim="@anim/nav_default_exit_anim"
-        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-        app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-
-    <action
-        android:id="@+id/navToHome"
-        app:destination="@id/home"
-        app:enterAnim="@anim/nav_default_enter_anim"
-        app:exitAnim="@anim/nav_default_exit_anim"
-        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-        app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+  <action
+      android:id="@+id/navToRef"
+      app:destination="@id/screenFragment"
+      app:enterAnim="@anim/nav_default_enter_anim"
+      app:exitAnim="@anim/nav_default_exit_anim"
+      app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+      app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
 
 </navigation>
